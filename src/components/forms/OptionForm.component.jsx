@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './OptionForm.css'; // Import your CSS file
+import './OptionForm.css';
 
 function OptionForm({ setSelectedOption }) {
     const [selected, setSelected] = useState('t');
