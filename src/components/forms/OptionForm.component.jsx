@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import css from './OptionForm.css';
 
 function OptionForm({ setSelectedOption }) {
     const [selected, setSelected] = useState('t');
@@ -10,43 +9,59 @@ function OptionForm({ setSelectedOption }) {
         setSelectedOption(value);
     };
 
+    const styles = {
+        radioContainer: {
+            display: 'flex',
+            flexDirection: 'row',
+            gap: '10px',
+        },
+        radioLabel: {
+            display: 'flex',
+            alignItems: 'center',
+            fontSize: '20px',
+        },
+        radioInput: {
+            marginRight: '5px',
+        },
+    };
+
     return (
         <div className="containers">
-        <div className="radio-container">
-            <label className="radio-label">
-                <input
-                    type="radio"
-                    value="s"
-                    name="options"
-                    className="radio-input"
-                    checked={selected === 's'}
-                    onChange={handleOptionChange}
-                />
-                Sessional
-            </label>
-            <label className="radio-label">
-                <input
-                    type="radio"
-                    value="e"
-                    name="options"
-                    className="radio-input"
-                    checked={selected === 'e'}
-                    onChange={handleOptionChange}
-                />
-                Exam marks
-            </label>
-            <label className="radio-label">
-                <input
-                    type="radio"
-                    value="t"
-                    name="options"
-                    className="radio-input"
-                    checked={selected === 't'}
-                    onChange={handleOptionChange}
-                />
-                Total Marks
-            </label>
-        </div>
+            <div style={styles.radioContainer}>
+                <label style={styles.radioLabel}>
+                    <input
+                        type="radio"
+                        value="s"
+                        name="options"
+                        style={styles.radioInput}
+                        checked={selected === 's'}
+                        onChange={handleOptionChange}
+                    />
+                    Sessional
+                </label>
+                <label style={styles.radioLabel}>
+                    <input
+                        type="radio"
+                        value="e"
+                        name="options"
+                        style={styles.radioInput}
+                        checked={selected === 'e'}
+                        onChange={handleOptionChange}
+                    />
+                    Exam marks
+                </label>
+                <label style={styles.radioLabel}>
+                    <input
+                        type="radio"
+                        value="t"
+                        name="options"
+                        style={styles.radioInput}
+                        checked={selected === 't'}
+                        onChange={handleOptionChange}
+                    />
+                    Total Marks
+                </label>
+            </div>
         </div>
     );
 }
